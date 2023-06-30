@@ -12,13 +12,13 @@ This module contains the client-side application built with React and Vite for t
 1. Clone the Security Process repository:
 
    ```shell
-   git clone git@github.com:JR-Camacho/security_processes.git
+   git clone git@github.com:JR-Camacho/client_side_security_processes.git
    ```
 
 2. Navigate to the client_side module directory:
 
    ```shell
-   cd security-processes/client_side
+   cd client_side_security_processes
    ```
 
 3. Install the dependencies:
