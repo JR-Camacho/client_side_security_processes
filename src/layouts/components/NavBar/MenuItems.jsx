@@ -46,7 +46,7 @@ const MenuItems = () => {
       </MenuHandler>
       <MenuList
         {...triggers}
-        className="hidden w-[26rem] grid-cols-7 gap-3 overflow-visible lg:grid"
+        className="grid w-[26rem] grid-cols-7 gap-3 overflow-visible"
       >
         <Card
           color="blue"
