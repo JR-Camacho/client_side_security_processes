@@ -45,21 +45,23 @@ const Home = () => {
           response={data && data.prediction}
         />
       )}
-      <Title
-        title={"Introduce a email for make predictions"}
-        className={"mt-20"}
-      />
-      <div className="w-full flex justify-center my-8">
-        <FormFields
-          textName={"email_text"}
-          fileName={"email_file"}
-          placeholder={"Email content"}
-          loading={loading}
-          textValue={textEmail}
-          setTextValue={setTextEmail}
-          setFileValue={setFileEmail}
-          handleClick={handleSubmit}
+      <div className="h-screen">
+        <Title
+          title={"Introduce a email for make predictions"}
+          className={"pt-[100px]"}
         />
+        <div className="w-full h-[60vh] flex justify-center items-center my-8">
+          <FormFields
+            textName={"email_text"}
+            fileName={"email_file"}
+            placeholder={"Email content"}
+            loading={loading}
+            textValue={textEmail}
+            setTextValue={setTextEmail}
+            setFileValue={setFileEmail}
+            handleClick={handleSubmit}
+          />
+        </div>
       </div>
     </MainLayout>
   );

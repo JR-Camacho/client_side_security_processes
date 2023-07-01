@@ -82,6 +82,7 @@ const FormFields = ({
             </Button>
             <input
               type="file"
+              accept=".txt,.eml"
               ref={fileInputRef}
               className="hidden"
               onChange={(e) => handleSetFileData(e)}
