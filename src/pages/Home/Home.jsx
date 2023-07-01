@@ -50,7 +50,7 @@ const Home = () => {
           title={"Introduce a email for make predictions"}
           className={"pt-[100px]"}
         />
-        <div className="w-full h-[60vh] flex justify-center items-center my-8">
+        <div className="w-full h-[60vh] flex justify-center  my-8">
           <FormFields
             textName={"email_text"}
             fileName={"email_file"}

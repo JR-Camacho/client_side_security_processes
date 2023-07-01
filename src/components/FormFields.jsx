@@ -49,7 +49,7 @@ const FormFields = ({
       <Textarea
         variant="static"
         placeholder={placeholder}
-        rows={8}
+        rows={12}
         value={textValue[textName]}
         name={textName}
         onChange={(e) => handleSetTextData(e)}
