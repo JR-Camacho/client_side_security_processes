@@ -45,11 +45,12 @@ const FormFields = ({
   };
 
   return (
-    <div className="relative w-11/12 md:w-[42rem]">
+    <div className="relative w-11/12 md:w-[56rem] bg-black h-[430px] flex flex-col justify-between rounded-2xl p-2 bg-[#010817]">
       <Textarea
         variant="static"
+        className="text-white"
         placeholder={placeholder}
-        rows={12}
+        rows={16}
         value={textValue[textName]}
         name={textName}
         onChange={(e) => handleSetTextData(e)}

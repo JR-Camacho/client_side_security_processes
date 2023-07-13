@@ -8,7 +8,7 @@ const PageNotFound = () => {
   return (
     <MainLayout>
       <div className="w-full h-screen flex flex-col lg:flex-row items-center justify-center">
-        <EmojiDizzy height={200} width={200} className="m-4" />
+        <EmojiDizzy height={200} width={200} />
         <Title title={"Page Not Found"} />
       </div>
     </MainLayout>

@@ -1,70 +1,79 @@
-import { useState } from "react";
-
-import useApi from "../../hooks/useApi";
-
 import MainLayout from "../../layouts/MainLayout";
 
-import Title from "../../components/Title";
-import FormFields from "../../components/FormFields";
-import DialogModal from "../../components/DialogModal";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 
-import { API_URL, ERROR } from "../../utils/UtilitiesConts";
+import { Link } from "react-router-dom";
 
-const Home = () => {
-  const { loading, isError, data, error, post } = useApi();
-
-  const [textEmail, setTextEmail] = useState({ email_text: "" });
-  const [fileEmail, setFileEmail] = useState({ email_file: null });
-  const [openModal, setOpenModal] = useState(false);
-
-  const handleOpenModal = () => {
-    setOpenModal(!openModal);
-  };
-
-  const handleSubmit = async () => {
-    const formData = new FormData();
-    formData.append("email_file", fileEmail.email_file);
-    await post(
-      `${API_URL}/spam-detector/`,
-      fileEmail.email_file ? formData : textEmail
-    );
-    setOpenModal(true);
-  };
-
-  return (
-    <MainLayout>
-      {openModal && (
-        <DialogModal
-          handleOpen={handleOpenModal}
-          isError={isError}
-          error={
-            error && error.error == ERROR
-              ? "Incomplete Email"
-              : "Submission Error!"
-          }
-          response={data && data.prediction}
-        />
-      )}
-      <div className="h-screen">
-        <Title
-          title={"Introduce a email for make predictions"}
-          className={"pt-[100px]"}
-        />
-        <div className="w-full h-[60vh] flex justify-center  my-8">
-          <FormFields
-            textName={"email_text"}
-            fileName={"email_file"}
-            placeholder={"Email content"}
-            loading={loading}
-            textValue={textEmail}
-            setTextValue={setTextEmail}
-            setFileValue={setFileEmail}
-            handleClick={handleSubmit}
+const Home = () => (
+  <MainLayout>
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-items-center content-center gap-x-6 gap-y-6 pb-10 pt-32 min-h-screen">
+      {/*Spam email detector */}
+      <Card className="mt-6 w-3/4 bg-gray-900 text-white">
+        <CardHeader color="blue-gray" className="relative h-56">
+          <img
+            src="https://tutorialsbackend.bluehost.in/wp-content/uploads/2023/04/Blog-banner-Sizes-for-Bluehost-1200-x-800-8.png"
+            alt="img-blur-shadow"
+            layout="fill"
           />
-        </div>
-      </div>
-    </MainLayout>
-  );
-};
+        </CardHeader>
+        <CardBody>
+          <Typography variant="h5" color="white" className="mb-2">
+            SPAM Email detector
+          </Typography>
+          <Typography>
+            This model has been designed to effectively identify and categorize
+            emails into different classes, such as spam and non-spam. Using
+            machine learning techniques, this classifier analyzes key features
+            of the emails, such as content, sender, subject, among others, to
+            determine their nature. Trust our machine learning-based classifier
+            to keep your inbox organized and free from spam.
+          </Typography>
+        </CardBody>
+        <CardFooter className="pt-0 flex justify-between">
+          <Link to={"/spam-detection"}>
+            <Button className="bg-white text-black">Try</Button>
+          </Link>
+        </CardFooter>
+      </Card>
+
+      {/*Malicius urls */}
+      <Card className="mt-6 w-3/4 bg-gray-900 text-white">
+        <CardHeader color="blue-gray" className="relative h-56">
+          <img
+            src={
+              "https://miro.medium.com/v2/resize:fit:1200/1*JDWy-xAcKMnbYfS3T5goTA.jpeg"
+            }
+            alt="img-blur-shadow"
+            layout="fill"
+          />
+        </CardHeader>
+        <CardBody>
+          <Typography variant="h5" color="white" className="mb-2">
+            Malicious URL detector
+          </Typography>
+          <Typography>
+            Powered by advanced machine learning techniques, this model is
+            specifically trained to identify and classify URLs as either safe or
+            malicious. By analyzing various features and patterns in the URLs,
+            such as domain reputation, URL structure, and content, our model can
+            accurately flag potentially harmful links.
+          </Typography>
+        </CardBody>
+        <CardFooter className="pt-0 flex justify-between">
+          <Link to={"/malicious-url-detection"}>
+            <Button className="bg-white text-black">Try</Button>
+          </Link>
+        </CardFooter>
+      </Card>
+    </div>
+  </MainLayout>
+);
 
 export default Home;

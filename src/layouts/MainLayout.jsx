@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="w-full min-h-screen flex flex-col bg-gray-200">
+    <div className="w-full min-h-screen flex flex-col bg-[#F2F6FF]">
       <header className="w-full">
         <NavBar />
       </header>

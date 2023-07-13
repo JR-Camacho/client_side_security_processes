@@ -3,7 +3,7 @@ import { Envelope, Github, Linkedin } from "react-bootstrap-icons";
 
 const Footer = () => {
   return (
-    <footer className="w-full md:h-80 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 items-center justify-items-center bg-gray-900 text-white">
+    <footer className="w-full md:h-80 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 items-center justify-items-center bg-[#000609] text-white">
       <h1 className="text-6xl m-4">JotaAI</h1>
       <Typography className="text-center m-4">
         Explore the power of computer vision with our models of image

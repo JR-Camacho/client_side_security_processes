@@ -29,7 +29,7 @@ const DialogModal = ({ handleOpen, error, isError, response }) => {
             </Typography>
           ) : (
             <Typography color={"green"} variant="h4" className="text-center">
-              {`The email is ${response.toUpperCase()}`}
+              {response}
             </Typography>
           )}
         </DialogBody>

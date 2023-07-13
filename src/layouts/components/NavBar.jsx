@@ -34,11 +34,11 @@ const NavBar = () => {
   );
 
   return (
-    <Navbar className="fixed top-0 inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-[#020617]">
+    <Navbar className="fixed top-0 inset-0 z-10 h-max max-w-full rounded-none py-2 px-4 lg:px-8 lg:py-4 bg-black border-none bg-opacity-100">
       <div className="container mx-auto flex items-center justify-between text-white">
         <Link to={"/"}>
           <Typography className="mr-4 cursor-pointer py-1.5 font-bold text-3xl sm:text-4xl uppercase">
-            SPAM Detector
+            JOTA Security
           </Typography>
         </Link>
         <div className="hidden lg:block">{navList}</div>
