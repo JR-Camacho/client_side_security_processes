@@ -24,7 +24,6 @@ const useApi = () => {
       setError(error.response.data);
       setIsError(true);
     }
-
     setLoading(false);
   };
 

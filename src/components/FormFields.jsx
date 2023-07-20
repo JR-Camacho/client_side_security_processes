@@ -7,7 +7,7 @@ import { ArrowUp, Check } from "heroicons-react";
 const FormFields = ({
   textName,
   fileName,
-  placeholder,
+  label,
   textValue,
   setTextValue,
   setFileValue,
@@ -20,8 +20,11 @@ const FormFields = ({
 
   const handleSetTextData = (e) => {
     setTextValue({ [textName]: e.target.value });
-    setFileValue({ [fileName]: null });
-    setIsSelectedFile(false);
+
+    if (fileName) {
+      setFileValue({ [fileName]: null });
+      setIsSelectedFile(false);
+    }
   };
 
   const handleSetFileData = (e) => {
@@ -35,8 +38,10 @@ const FormFields = ({
 
   const clear = () => {
     setTextValue({ [textName]: "" });
-    setFileValue({ [fileName]: null });
-    setIsSelectedFile(false);
+    if (fileName) {
+      setFileValue({ [fileName]: null });
+      setIsSelectedFile(false);
+    }
   };
 
   const handleOpenFileInput = () => {
@@ -45,12 +50,12 @@ const FormFields = ({
   };
 
   return (
-    <div className="relative w-11/12 md:w-[56rem] bg-black h-[430px] flex flex-col justify-between rounded-2xl p-2 bg-[#010817]">
+    <div className="w-full h-full flex flex-col justify-between lg:rounded-l-2xl p-2 bg-black">
       <Textarea
-        variant="static"
+        size="md"
         className="text-white"
-        placeholder={placeholder}
-        rows={16}
+        label={label}
+        rows={10.5}
         value={textValue[textName]}
         name={textName}
         onChange={(e) => handleSetTextData(e)}
@@ -65,31 +70,32 @@ const FormFields = ({
           >
             <LinkIcon strokeWidth={2} className="w-4 h-4" />
           </IconButton>
-
-          <div>
-            <Button
-              onClick={handleOpenFileInput}
-              className={`rounded-md p-2 ml-2 border-none flex items-center ${
-                isSelectedFile && "text-green-500 focus:ring-green-200"
-              }`}
-              variant="outlined"
-            >
-              {isSelectedFile ? "Selected File" : "Upload File"}
-              {isSelectedFile ? (
-                <Check height={20} width={20} />
-              ) : (
-                <ArrowUp height={20} width={20} />
-              )}
-            </Button>
-            <input
-              type="file"
-              accept=".txt,.eml"
-              ref={fileInputRef}
-              className="hidden"
-              onChange={(e) => handleSetFileData(e)}
-              name={fileName}
-            />
-          </div>
+          {fileName && (
+            <div>
+              <Button
+                onClick={handleOpenFileInput}
+                className={`rounded-md p-2 ml-2 border-none flex items-center ${
+                  isSelectedFile && "text-green-500 focus:ring-green-200"
+                }`}
+                variant="outlined"
+              >
+                {isSelectedFile ? "Selected File" : "Upload File"}
+                {isSelectedFile ? (
+                  <Check height={20} width={20} />
+                ) : (
+                  <ArrowUp height={20} width={20} />
+                )}
+              </Button>
+              <input
+                type="file"
+                accept=".txt,.eml"
+                ref={fileInputRef}
+                className="hidden"
+                onChange={(e) => handleSetFileData(e)}
+                name={fileName}
+              />
+            </div>
+          )}
         </div>
         <div className="flex gap-2">
           <Button
